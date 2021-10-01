@@ -7,6 +7,8 @@ public class PathFollower : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _arrivalThreshold;
 
+    [SerializeField] private float _damage = 1;
+
     private float followerHeight;
     private Path _path;
     private Waypoint _currentWaypoint;
@@ -56,5 +58,7 @@ public class PathFollower : MonoBehaviour
     private void PathComplete()
     {
         Destroy(this.gameObject);
+        Debug.Log("Ik ben bij het eindpunt");
+        FindObjectOfType<PlayerHealth>().TakeDamage(_damage);
     }
 }
